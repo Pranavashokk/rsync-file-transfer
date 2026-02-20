@@ -9,7 +9,7 @@ install_rsync() {
     fi
 }
 
-echo "Are you the sender(1) or reciever(2)"
+echo "r u the sender(1) or reciever(2)"
 read -p "select an option (1-2): " ROLE
 
 case $ROLE in
@@ -20,7 +20,7 @@ case $ROLE in
         IP_ADDR=$(hostname -I | awk '{print $1}')
         
         echo "MODE: DESTINATION"
-        echo "1. make sure SSH is running: sudo systemctl start ssh , type the command to the sender"
+        echo "1. make sure ssh is running: sudo systemctl start ssh , type the command to the sender"
       
         echo "rsync -avzP /path/to/source/folder/ $(whoami)@${IP_ADDR}:~/rsync/shared-file/"
         ;;
@@ -29,8 +29,8 @@ case $ROLE in
         install_rsync
        
         echo "MODE: SOURCE"
-        read -p "enter the destination IP address: " DEST_IP
-        read -p "enter the destination Username: " DEST_USER
+        read -p "enter destination ip address: " DEST_IP
+        read -p "enter  destination username: " DEST_USER
         read -p "enter the FULL path of the folder to send: " SRC_PATH
         
         
